@@ -3,7 +3,6 @@ models:
     type: chat
     model_provider: openai
     auth_type: api_key
-    api_key: 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
     model: gpt-4o-mini
     model_supports_json: true
     concurrent_requests: 1
@@ -18,7 +17,6 @@ models:
     type: embedding
     model_provider: openai
     auth_type: api_key
-    api_key: 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
     model: text-embedding-3-small
     concurrent_requests: 1
     async_mode: threaded
