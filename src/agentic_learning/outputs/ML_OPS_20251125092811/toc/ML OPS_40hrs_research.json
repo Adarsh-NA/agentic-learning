@@ -1,0 +1,141 @@
+{
+  "subject": "ML OPS",
+  "total_duration": "40 hours",
+  "toc": [
+    {
+      "topic": "Orientation & Course Overview",
+      "subtopics": [
+        "Goals, outcomes and how to use the 40-hour program",
+        "Audience, prerequisites and required setup",
+        "Overview of hands-on labs, tooling used, and evaluation criteria",
+        "Schedule and recommended learning path after the course"
+      ],
+      "duration": "1"
+    },
+    {
+      "topic": "MLOps Fundamentals & Lifecycle",
+      "subtopics": [
+        "Definition and value proposition of MLOps vs DevOps",
+        "End-to-end ML lifecycle: data, models, deployment, monitoring, governance",
+        "Key roles and responsibilities (Data Engineer, ML Engineer, SRE, MLOps Eng)",
+        "Common challenges in production ML and maturity models",
+        "Success metrics for MLOps programs"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "Data Engineering for ML",
+      "subtopics": [
+        "Data collection patterns, ingestion techniques and connectors",
+        "Data validation, quality checks, and schema evolution",
+        "Feature engineering, feature pipelines and online vs offline features",
+        "Feature stores: concepts, use cases, and consistency guarantees",
+        "Data lineage, data contracts and versioning strategies",
+        "Hands-on: Build a simple ETL/feature pipeline using a notebook and a workflow tool (ingest, validate, store features)"
+      ],
+      "duration": "5"
+    },
+    {
+      "topic": "Model Development, Testing & Reproducibility",
+      "subtopics": [
+        "Project structure and modular development for ML",
+        "Experiment design, training best practices and hyperparameter tuning",
+        "Unit testing for ML: data tests, training tests, model tests",
+        "Reproducibility: environment isolation, dependency management, random seeds",
+        "Packaging models for portability (serialization formats, model wrappers)",
+        "Hands-on: Reproducible training workflow — use containerized environment to train and run tests"
+      ],
+      "duration": "5"
+    },
+    {
+      "topic": "Experiment Tracking, Model & Data Versioning",
+      "subtopics": [
+        "Experiment tracking concepts and tooling (MLflow, Weights & Biases, etc.)",
+        "Model versioning workflows and registries",
+        "Data versioning approaches and tools (DVC, Delta Lake, LakeFS)",
+        "Linking experiments, data versions and model artifacts for traceability",
+        "Hands-on: Track experiments and register models; replay experiments with changed data"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "CI/CD for ML (Continuous Integration & Continuous Delivery)",
+      "subtopics": [
+        "Principles of CI/CD specific to ML projects",
+        "Testing matrix for ML: unit, integration, performance, fairness tests",
+        "Pipeline stages: linting, tests, training, validation, packaging, deployment",
+        "Infrastructure as Code for ML pipelines and environments (Terraform, CloudFormation, Pulumi)",
+        "Release strategies for models: shadow, canary, blue/green",
+        "Hands-on: Implement a simple CI pipeline that runs tests and triggers a model build"
+      ],
+      "duration": "5"
+    },
+    {
+      "topic": "Orchestration & Workflow Tools",
+      "subtopics": [
+        "Role of orchestration in MLOps: scheduling, retries, dependency management",
+        "Survey of tools: Airflow, Kubeflow Pipelines, Argo, Prefect — when to choose what",
+        "Kubernetes basics for ML workloads and CRDs commonly used",
+        "Building repeatable pipelines: parametrization and artifacts",
+        "Hands-on: Create and run a multi-step ML pipeline using a workflow tool (local/k8s)"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "Model Serving & Deployment Patterns",
+      "subtopics": [
+        "Serving architectures: batch, real-time, streaming, edge",
+        "Serving frameworks and patterns (TF Serving, TorchServe, BentoML, Seldon Core)",
+        "Containerization and deployment on Kubernetes and serverless platforms",
+        "Latency, throughput and scaling considerations; autoscaling strategies",
+        "A/B testing and traffic routing for model variants",
+        "Hands-on: Containerize a model and deploy it as a scalable REST endpoint (local k8s or cloud)"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Monitoring, Observability & SRE for ML",
+      "subtopics": [
+        "Key observability pillars: logs, metrics, traces for ML systems",
+        "Model performance monitoring: concept drift, data drift, input validation",
+        "Alerting, SLIs/SLOs and runbooks for models in production",
+        "Root cause analysis for model failures and automated rollback strategies",
+        "Hands-on: Implement basic monitoring for a deployed model (metrics, drift detection dashboard)"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Governance, Security, Compliance & Cost Management",
+      "subtopics": [
+        "Model governance: lineage, audit trails and explainability requirements",
+        "Data privacy, secure data handling, and anonymization techniques",
+        "Access control for models and data, secrets management and least privilege",
+        "Regulatory considerations (GDPR, sector-specific rules) and documentation practices",
+        "Cost optimization for training and serving (spot instances, resource sizing)",
+        "Practical checklist for audits and compliance"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "MLOps Platform & Tooling Survey; Choosing a Stack",
+      "subtopics": [
+        "Comparing managed vs self-hosted MLOps platforms and trade-offs",
+        "Checklist to evaluate tools across data, training, serving, monitoring and governance",
+        "Integration patterns and vendor lock-in considerations",
+        "Roadmap for implementing MLOps in an organization: pilot -> scale -> operate",
+        "Case studies: successful MLOps implementations and anti-patterns"
+      ],
+      "duration": "2"
+    },
+    {
+      "topic": "Capstone Hands-on Project & Review",
+      "subtopics": [
+        "Capstone: end-to-end mini-project that exercises data pipeline, training, tracking, CI, deployment and monitoring",
+        "Team roles, deliverables and evaluation rubric",
+        "Walkthrough of completed capstones with feedback",
+        "Recap of key learnings, next steps and recommended resources"
+      ],
+      "duration": "2"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "subject": "Ethical hacking",
+  "total_duration": "40 hours",
+  "toc": [
+    {
+      "topic": "Course Orientation, Ethics, Laws and Responsible Disclosure",
+      "subtopics": [
+        "Course objectives, outcomes and assessment overview",
+        "Roles and responsibilities of ethical hackers / penetration testers",
+        "Codes of conduct, professional ethics and industry standards (e.g., CEH, OSCP, ISO 27001 implications)",
+        "Legal frameworks, authorization, contracts and scope definition (domestic and international considerations)",
+        "Rules of engagement, safe testing practices, and handling sensitive data",
+        "Responsible disclosure process and coordination with incident response",
+        "Risk management and decision-making during tests"
+      ],
+      "duration": "2"
+    },
+    {
+      "topic": "Methodology, Lab Setup and Tools Overview",
+      "subtopics": [
+        "Penetration testing methodologies (PTES, OSSTMM, NIST 800-115) and test planning",
+        "Setting up safe lab environments: virtual lab, staging networks, and containment",
+        "Essential tool categories and workflow (recon, scanning, exploitation, post-exploit, reporting)",
+        "Overview of commonly used tools: Nmap, Wireshark, Burp Suite, Metasploit, Nikto, OpenVAS, sqlmap, etc.",
+        "Managing artifacts: data collection, logs, evidence preservation and tool configuration",
+        "Lab setup hands-on: building a reproducible VM lab and installing/configuring key tools"
+      ],
+      "duration": "2"
+    },
+    {
+      "topic": "Reconnaissance & OSINT (Open Source Intelligence)",
+      "subtopics": [
+        "Active vs passive reconnaissance: concepts and tradeoffs",
+        "DNS interrogation, WHOIS, zone transfers, and subdomain discovery",
+        "Using search engines, social media, code repositories, and metadata for OSINT",
+        "Gathering infrastructure intelligence: IP ranges, cloud assets, CDN and service discovery",
+        "Footprinting web applications, identifying technologies and third-party services",
+        "Automated OSINT tools and frameworks (theHarvester, Recon-ng, Shodan, Censys)",
+        "Hands-on lab: OSINT exercise — map a target's external footprint and create an asset inventory (guided)"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Scanning, Enumeration and Service Discovery",
+      "subtopics": [
+        "Network scanning fundamentals: TCP/UDP scanning, timing, and evasion techniques",
+        "Nmap advanced usage: scripting (NSE), version detection, OS fingerprinting and output parsing",
+        "Port scanning strategies, interpretation of results and prioritization",
+        "Service enumeration: SMB, LDAP, SNMP, SSH, FTP, databases and web services",
+        "Banner grabbing, protocol analysis and fingerprinting",
+        "Vulnerability scanners overview (Nessus/OpenVAS) and how to validate findings",
+        "Hands-on lab: perform targeted scanning and enumeration on lab hosts; interpret and triage results"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Vulnerability Assessment and Analysis",
+      "subtopics": [
+        "Vulnerability assessment vs exploitation: scope and objectives",
+        "Classifying vulnerabilities: CVE, CVSS scoring, exploitability and business impact",
+        "Correlating scanner output with manual verification to reduce false positives",
+        "Public exploit research and safe use of exploit databases (Exploit-DB, Metasploit modules)",
+        "Prioritization frameworks and remediation guidance",
+        "Hands-on lab: analyze scanned findings, validate key vulnerabilities and produce a risk-ranked checklist"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "Exploitation Fundamentals",
+      "subtopics": [
+        "Exploitation concepts: payloads, shells, exploits, and exploit reliability",
+        "Using Metasploit Framework: modules, listeners, payloads, and post modules",
+        "Buffer overflows and memory corruption basics (conceptual overview and safe demonstration)",
+        "Safe exploitation practices and avoiding collateral damage",
+        "Authentication bypass techniques, default credentials and weak crypto",
+        "Hands-on lab: controlled exploitation with Metasploit on lab targets; capturing shells and documenting steps"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Web Application Hacking (OWASP Top 10 Focus)",
+      "subtopics": [
+        "Web application architecture, request lifecycle and common components",
+        "Injection attacks (SQLi, Command Injection) — detection and exploitation",
+        "Authentication and session management weaknesses",
+        "Cross-Site Scripting (XSS), CSRF and other client-side attacks",
+        "Insecure deserialization, broken access control and server-side vulnerabilities",
+        "Using Burp Suite effectively: intercepting proxy, repeater, intruder, scanner basics",
+        "Automated vs manual testing techniques and fuzzing approaches",
+        "Hands-on lab: OWASP Top 10 practical exercise using vulnerable web apps (e.g., DVWA, Juice Shop) with Burp Suite and sqlmap"
+      ],
+      "duration": "6"
+    },
+    {
+      "topic": "Network Attacks, Pivoting and Lateral Movement",
+      "subtopics": [
+        "Network-level attacks: ARP spoofing, MITM, DNS poisoning and spoofing basics",
+        "Capturing and analyzing network traffic with Wireshark and tcpdump",
+        "Exploitation of network services and relay techniques (e.g., SMB relay)",
+        "Establishing footholds, pivoting techniques and use of proxychains/SSH tunnels",
+        "Use of covert channels and tunneling (DNS, HTTP(S)) and detection implications",
+        "Hands-on lab: perform a simulated lateral movement exercise and pivot from a compromised host to internal targets"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Wireless and Mobile Security Basics",
+      "subtopics": [
+        "Wireless fundamentals: 802.11 overview, encryption types (WEP/WPA/WPA2/WPA3) and attack surface",
+        "Assessing wireless networks: discovery, rogue APs, deauth attacks and WPA handshake capture",
+        "Bluetooth and IoT/mobile considerations and common misuse patterns",
+        "Tools for wireless testing: Aircrack-ng suite, Kismet and mobile-focused tools",
+        "Hands-on lab: capture and analyze wireless traffic in a controlled environment; attempt WPA2 handshake capture and demonstrate deauth (lab-safe)"
+      ],
+      "duration": "2"
+    },
+    {
+      "topic": "Post-Exploitation, Privilege Escalation and Data Exfiltration",
+      "subtopics": [
+        "Post-exploitation objectives: persistence, credential harvesting, lateral movement and data staging",
+        "Windows and Linux privilege escalation techniques and identification of privilege escalation vectors",
+        "Credential dumping basics (LSASS, /etc/passwd shadow) and safe handling",
+        "Maintaining access: backdoors, scheduled tasks, services and startup items (ethical considerations)",
+        "Data exfiltration methods and minimizing detection",
+        "Hands-on lab: perform post-exploitation tasks in lab, practice privilege escalation techniques and document findings"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "Reporting, Remediation Guidance and Communication",
+      "subtopics": [
+        "Structuring professional penetration testing reports: executive summary, technical findings, risk ratings and remediation steps",
+        "Creating reproducible test evidence: logs, screenshots, PoCs and safe artifact handling",
+        "Delivering technical and non-technical briefings to stakeholders",
+        "Remediation validation and retest recommendations",
+        "Introduction to red/blue team collaboration and basic defensive controls to mitigate common attack patterns",
+        "Hands-on: produce a sample finding report from lab exercise and present remediation recommendations"
+      ],
+      "duration": "2"
+    },
+    {
+      "topic": "Capstone Practical: Full-scope Penetration Test and Course Wrap-up",
+      "subtopics": [
+        "Live capstone exercise: plan and execute a limited-scope penetration test in the lab (recon, scan, exploit, post-exploit, report)",
+        "Team coordination, time management and attack documentation during the exercise",
+        "Assessment: practical deliverables review and instructor feedback",
+        "Consolidated best practices checklist and career next steps (certifications, continuous learning)",
+        "Course debrief, Q&A, resources and recommended reading"
+      ],
+      "duration": "4"
+    }
+  ]
+}

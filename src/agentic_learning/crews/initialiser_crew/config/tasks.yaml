@@ -1,0 +1,22 @@
+create_folder_structure_task:
+  description: >
+    Create a subject-based folder structure inside the root folder using
+    - root_folder {root_folder}
+    - subject {subject}
+    - datetime_str {datetime_str}
+    to form the directory structure. Ensure all subfolders are created.
+
+  agent: folder_structure_agent
+
+  output_type: json
+  
+  expected_output: >
+    A JSON response including all created folder paths.
+
+  instruction: |
+    Run folder_structure_tool with:
+    - {root_folder}
+    - {subject}
+    - {datetime_str}
+
+    Return ONLY its JSON output.

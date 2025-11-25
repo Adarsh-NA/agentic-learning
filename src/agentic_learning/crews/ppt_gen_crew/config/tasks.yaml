@@ -1,0 +1,95 @@
+generate_jsonppt_from_toc_task:
+  agent: json_ppt_generator_agent
+  description: >
+    Reads a Markdown TOC from `{toc_path}` and intelligently generates a JSON
+    PowerPoint structure with enriched educational content and a fixed 6-field schema.
+
+    JSON Schema per slide (mandatory keys):
+      - Title (string)
+      - Content (string; may be empty for rule-based slides)
+      - Bullets (list of strings; may be empty for rule-based slides)
+      - Notes (string; must be detailed on all slides)
+      - Style (title | section | topic | subtopic)
+      - Subslides (list for hierarchical children)
+
+    🔐 JSON Root-Level Rule:
+      ✔ The top-level JSON MUST contain exactly one key: `"slides"`
+
+    Slide Construction Rules:
+      1️⃣ First Slide — Title Slide
+         - Displays only `{subject}` prominently
+         - Style: title
+         - ❌ No bullets or content
+
+      2️⃣ Curiosity Slide (Second Slide)
+         - A thought-provoking question to engage the audience
+         - Title must be visually centered
+         - ✔ Speaker notes must help build curiosity
+         - ❌ No repeated text in content/bullets
+
+      3️⃣ Answer Slide (Third Slide)
+         - Answers the curiosity question
+         - ✔ Clear conceptual introduction to subject
+         - ✔ No duplicate text between title and bullets/content
+
+      4️⃣ Each Topic (from TOC)
+         - First slide is a **Topic Title Slide**
+         - Style: section
+         - ✔ Must list all subtopics as bullets
+         - ❌ No body content
+         - ✔ Duration for each topic must match the TOC values
+         - Titles may be linguistically polished but **topic identity must remain unchanged**
+
+      5️⃣ Each Subtopic
+         - Must have ≥ 1 explanatory slide(s)
+         - Style: topic or subtopic based on depth
+         - ✔ Focus on bullet-based teaching
+         - ✔ Minimal content text (only when essential)
+         - ✔ Notes must include detailed real teaching guidance
+         - Subtopic titles may be re-phrased or shortened to read like bullet items,
+           but **the original subtopics cannot be removed or replaced**
+
+      6️⃣ Additional Teaching Slides
+         - Automatically included when needed to support learning outcomes
+         - Maintain hierarchy consistency and avoid duplication
+
+      7️⃣ Final Slide
+         - Title: “Thank You”
+         - Style: title
+         - ❌ No bullets or content
+
+    General Quality Rules:
+      - Preserve full hierarchical mapping: Topic → Subtopic → Slides
+      - Prevent repetition between headers and body content
+      - Maintain strong educational flow aligned with `{duration}` training hours
+      - Speaker notes are considered **essential content** and must be detailed
+      - Ensure coherence, clarity, and instructional value across slides
+
+  inputs:
+    - subject: str
+    - duration: int
+    - toc_path: str
+    - presentations_dir_path: str
+
+  expected_output: |
+    A structured JSON file that strictly follows:
+      - 6-field schema per slide
+      - All slide construction + hierarchy rules
+      - Top-level JSON key: "slides"
+      - Duration alignment with the TOC
+
+  output_file: "{presentations_dir_path}/{subject}_{duration}hrs_ppt.json"
+
+generate_ppt_from_json_task:
+  agent: ppt_generation_from_json_agent
+  description: >
+    Reads a JSON file "{presentations_dir_path}/{subject}_{duration}hrs_ppt.json" and
+    generates a PowerPoint (.pptx) file.
+    The output PPT will have the same name as the JSON file, but with `.pptx` extension.
+
+  expected_output: |
+    {
+      "success": true,
+      "message": "PPT generated successfully",
+      "ppt_output_path": "/path/to/presentation/subject_duration.pptx"
+    }
