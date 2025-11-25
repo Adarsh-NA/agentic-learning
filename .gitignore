@@ -2,3 +2,4 @@
 __pycache__/
 lib/
 .DS_Store
+src/agentic_learning/graphrag/settings.yaml
