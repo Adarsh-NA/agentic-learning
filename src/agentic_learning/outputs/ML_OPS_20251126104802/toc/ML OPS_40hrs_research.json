@@ -1,0 +1,148 @@
+{
+  "subject": "ML OPS",
+  "total_duration": "40 hours",
+  "toc": [
+    {
+      "topic": "Course introduction & MLOps overview",
+      "subtopics": [
+        "Training objectives, audience, schedule and deliverables",
+        "What is MLOps: definition, scope and value to business",
+        "Typical ML lifecycle and key pain points MLOps solves",
+        "Success metrics and KPIs for MLOps programs",
+        "Overview of tooling landscape and course expectations"
+      ],
+      "duration": "1"
+    },
+    {
+      "topic": "ML lifecycle, teams and workflows",
+      "subtopics": [
+        "End-to-end ML lifecycle: problem framing to retirement",
+        "Key roles and responsibilities (Data Engineers, ML Engineers, SRE, Product, Data Scientists)",
+        "Common workflows and handoffs between teams",
+        "Project templates, reproducible experiment workflows and project scoping",
+        "Change management and collaboration practices"
+      ],
+      "duration": "1"
+    },
+    {
+      "topic": "Data engineering and data pipelines for ML",
+      "subtopics": [
+        "Data sources, ingestion patterns and schemas (stream vs batch)",
+        "ETL vs ELT, data cleaning, transformation, and enrichment for ML",
+        "Data validation, profiling, test suites and schema checks",
+        "Data versioning and lineage concepts",
+        "Operational concerns: latency, throughput, idempotency",
+        "Hands-on: Build a simple ETL pipeline with Python and Prefect/Airflow, add validation with Great Expectations"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Model development best practices",
+      "subtopics": [
+        "Experimentation workflows and reproducible training (envs, seeds, config files)",
+        "Experiment tracking and metadata management",
+        "Feature engineering, pipelines and offline/online parity",
+        "Model testing: unit tests, integration tests and model quality tests",
+        "Containerization of training workloads and resource management",
+        "Hands-on: Track experiments and models with MLflow; containerize a training job"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Versioning and reproducibility for code, data and models",
+      "subtopics": [
+        "Principles of reproducibility: deterministic builds and artifacts",
+        "Code versioning best practices (Git workflows) for ML projects",
+        "Data and model versioning tools and strategies (DVC, Git-LFS, object stores)",
+        "Model registries and metadata (MLflow Registry, cloud registries)",
+        "Provenance, lineage and auditing for reproducibility",
+        "Hands-on: Use DVC to version data and models; register a model in MLflow"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "CI/CD for Machine Learning",
+      "subtopics": [
+        "Differences between software CI/CD and ML CI/CD",
+        "Designing pipelines: unit tests, model validation, data checks and gating",
+        "Automating training, validation and release workflows",
+        "Release strategies: canary, blue/green, shadow testing and rollback",
+        "Tools and orchestration (GitHub Actions, Jenkins, GitLab CI, Tekton)",
+        "Hands-on: Implement a CI pipeline that runs tests, trains a model and promotes artifacts"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Model serving and deployment",
+      "subtopics": [
+        "Serving paradigms: batch, online, streaming and edge",
+        "Architectures: microservices, serverless, inference clusters and model mesh",
+        "APIs and protocols: REST, gRPC, streaming",
+        "Scaling, latency optimization and resource management",
+        "Model packaging and runtime options (TorchServe, TensorFlow Serving, BentoML, Seldon)",
+        "Hands-on: Deploy a model as a REST service using FastAPI + Docker; optionally deploy to Kubernetes"
+      ],
+      "duration": "5"
+    },
+    {
+      "topic": "Monitoring, observability and incident response",
+      "subtopics": [
+        "Monitoring dimensions: system metrics, model performance, data quality",
+        "Detecting model drift, data drift and concept drift",
+        "Logging, metrics, tracing and dashboards (Prometheus, Grafana, ELK)",
+        "Alerting, SLOs, incident playbooks and root cause analysis",
+        "Explainability, fairness monitoring and post-deployment validation",
+        "Hands-on: Instrument a deployed model with metrics, create dashboards and simulate drift to trigger alerts"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Feature stores and feature engineering at scale",
+      "subtopics": [
+        "Motivation for feature stores and problems they solve",
+        "Architecture: online vs offline stores, feature views",
+        "Consistency, freshness and serving guarantees",
+        "Integration with pipelines, registries and serving layers",
+        "Operational challenges and best practices",
+        "Hands-on: Build and serve features using Feast (or a mock feature store) and integrate with a training flow"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "MLOps infrastructure & cloud-native patterns",
+      "subtopics": [
+        "Infrastructure choices: on-prem, cloud managed services, hybrid",
+        "Kubernetes for ML workloads, helm charts and operators",
+        "Serverless and managed ML platforms (SageMaker, Vertex AI, Azure ML): when to use them",
+        "Infrastructure-as-code and reproducible infra (Terraform, Pulumi)",
+        "Cost management and resource optimization for ML workloads",
+        "Hands-on: Provision a minimal pipeline or infra component using Terraform or deploy to a managed cloud ML service (demo)"
+      ],
+      "duration": "4"
+    },
+    {
+      "topic": "Governance, security, ethics and cost management",
+      "subtopics": [
+        "Model governance, audit trails and regulatory considerations",
+        "Data privacy, access control and secure model deployment",
+        "Bias mitigation, explainability and ethical considerations in ML",
+        "Model lifecycle policies (approval, retraining, deprecation)",
+        "Cost monitoring, budgeting and chargeback for ML projects",
+        "Case studies and checklists for enterprise adoption"
+      ],
+      "duration": "3"
+    },
+    {
+      "topic": "Capstone: End-to-end MLOps workshop, review and next steps",
+      "subtopics": [
+        "Capstone objective: deliver a small end-to-end project (data pipeline, training, CI, deployment, monitoring)",
+        "Team exercise: implement and present solution integrating learned components",
+        "Assessment rubric and feedback session",
+        "Operational checklist and production readiness review",
+        "Roadmap, learning resources and recommended tool study guides",
+        "Course wrap-up, Q&A and certification/next steps"
+      ],
+      "duration": "4"
+    }
+  ]
+}

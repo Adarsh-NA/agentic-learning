@@ -10,6 +10,16 @@ from agentic_learning.crews.subject_research_crew.subject_research_crew import S
 from agentic_learning.crews.blooms_summary_crew.blooms_summary_crew import BloomsSummaryCrew
 from agentic_learning.tools.text_chunker_tool import chunk_transcripts
 from agentic_learning.crews.ppt_gen_crew.ppt_gen_crew import PptGenCrew
+from crewai.flow.persistence import persist
+import os
+from pathlib import Path
+
+# Store in project directory
+project_root = Path(__file__).parent
+storage_dir = project_root / "crewai_storage"
+
+os.environ["CREWAI_STORAGE_DIR"] = str(storage_dir)
+
 
 class AgenticLearningState(BaseModel):
     subject: str = ''
@@ -23,6 +33,7 @@ class AgenticLearningState(BaseModel):
     blooms_summary_dir_path: str = ''
     presentations_dir_path: str = ''
 
+@persist()
 class AgenticLearningFlow(Flow[AgenticLearningState]):
 
     @start()
@@ -104,52 +115,54 @@ class AgenticLearningFlow(Flow[AgenticLearningState]):
 
 
 if __name__ == "__main__":
-    debug_blooms_only = "--debug-blooms" in sys.argv
-    debug_ppt_only = "--debug-ppt" in sys.argv
-    debug_toc_only = "--debug-toc" in sys.argv  # NEW FLAG
+    # debug_blooms_only = "--debug-blooms" in sys.argv
+    # debug_ppt_only = "--debug-ppt" in sys.argv
+    # debug_toc_only = "--debug-toc" in sys.argv  # NEW FLAG
 
     flow = AgenticLearningFlow()
+    flow.state.subject = sys.argv[2] if len(sys.argv) > 2 else "Python"
+    flow.state.duration = int(sys.argv[3]) if len(sys.argv) > 3 else 4
 
-    if debug_toc_only:
-        print("🔎 Debug Mode: Running ONLY TOC + Transcription generation")
+    # if debug_toc_only:
+    #     print("🔎 Debug Mode: Running ONLY TOC + Transcription generation")
 
-        # Inject Subject & Duration from CLI for consistency
-        flow.state.subject = sys.argv[2] if len(sys.argv) > 2 else "Python"
-        flow.state.duration = int(sys.argv[3]) if len(sys.argv) > 3 else 4
+    #     # Inject Subject & Duration from CLI for consistency
+    #     flow.state.subject = sys.argv[2] if len(sys.argv) > 2 else "Python"
+    #     flow.state.duration = int(sys.argv[3]) if len(sys.argv) > 3 else 4
 
-        # Initialize folder structure
-        flow.initialize_agantic_learning()
+    #     # Initialize folder structure
+    #     flow.initialize_agantic_learning()
 
-        # Execute only the TOC + transcript step
-        flow.generate_toc_transcription()
+    #     # Execute only the TOC + transcript step
+    #     flow.generate_toc_transcription()
 
-        print("\n--- Debug Output ---")
-        print(f"TOC: {flow.state.toc_path}")
-        print(f"Transcripts: {flow.state.transcript_path}")
-        print("-------------------")
+    #     print("\n--- Debug Output ---")
+    #     print(f"TOC: {flow.state.toc_path}")
+    #     print(f"Transcripts: {flow.state.transcript_path}")
+    #     print("-------------------")
 
-    elif debug_blooms_only:
-        # ✂️ (unchanged)
-        flow.state.transcript_path = (
-            "/Users/.../transcripts/LLM Finetuning_transcripts.json"
-        )
-        flow.state.blooms_summary_dir_path = (
-            "/Users/.../blooms_summary"
-        )
-        flow.generate_blooms_summary()
+    # elif debug_blooms_only:
+    #     # ✂️ (unchanged)
+    #     flow.state.transcript_path = (
+    #         "/Users/.../transcripts/LLM Finetuning_transcripts.json"
+    #     )
+    #     flow.state.blooms_summary_dir_path = (
+    #         "/Users/.../blooms_summary"
+    #     )
+    #     flow.generate_blooms_summary()
 
-    elif debug_ppt_only:
-        # ✂️ (unchanged)
-        flow.state.subject = "ML OPS"
-        flow.state.duration = 8
-        flow.state.toc_path = (
-            "/Users/adarshna/Codes/Jupyter/17_AgenticAI/CrewAI/EdTechAutomation/agentic_learning/src/agentic_learning/outputs/ML_OPS_20251125070757/toc/ML OPS_toc.md"
-        )
-        flow.state.presentations_dir_path = (
-            "/Users/adarshna/Codes/Jupyter/17_AgenticAI/CrewAI/EdTechAutomation/agentic_learning/src/agentic_learning/outputs/ML_OPS_20251125070757/presentations"
-        )
-        flow.ppt_gen_crew()
+    # elif debug_ppt_only:
+    #     # ✂️ (unchanged)
+    #     flow.state.subject = "ML OPS"
+    #     flow.state.duration = 8
+    #     flow.state.toc_path = (
+    #         "/Users/adarshna/Codes/Jupyter/17_AgenticAI/CrewAI/EdTechAutomation/agentic_learning/src/agentic_learning/outputs/ML_OPS_20251125070757/toc/ML OPS_toc.md"
+    #     )
+    #     flow.state.presentations_dir_path = (
+    #         "/Users/adarshna/Codes/Jupyter/17_AgenticAI/CrewAI/EdTechAutomation/agentic_learning/src/agentic_learning/outputs/ML_OPS_20251125070757/presentations"
+    #     )
+    #     flow.ppt_gen_crew()
 
-    else:
+    # else:
         # Normal full flow
-        flow.kickoff()
+    flow.kickoff()
